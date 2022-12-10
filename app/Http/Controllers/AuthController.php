@@ -17,7 +17,7 @@ class AuthController extends Controller
      */
     // public function __construct()
     // {
-    //     $this->middleware('auth:api', ['except' => ['login','register']]);
+    //     $this->middleware('auth.role:user', ['except' => ['login','register']]);
     // }
 
     public function register(){
@@ -59,11 +59,9 @@ class AuthController extends Controller
      */
     public function login()
     {
-        $credentials = request(['email', 'password']);
+        $credentials = request(['name', 'password']);
 
-        // dd($credentials);
-
-        if (! $token = auth()->attempt($credentials)) {
+        if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 

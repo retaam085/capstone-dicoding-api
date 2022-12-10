@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('login', [AuthController::class,'login']);
 Route::post('register', [AuthController::class,'register']);
+Route::post('login', [AuthController::class,'login']);
 
 Route::group(['middleware' => 'auth.role:admin,user','prefix' => 'auth'], function ($router) {
     Route::post('logout', [AuthController::class,'logout']);
@@ -33,4 +33,7 @@ Route::group(['middleware' => 'auth.role:user,admin','prefix' => 'news'], functi
     Route::post('/create', [NewsController::class,'create']);
     Route::get('/getAllNews', [NewsController::class,'showAll']);
 });
+
+
+
 
