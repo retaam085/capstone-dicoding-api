@@ -29,11 +29,10 @@ Route::group(['middleware' => 'auth.role:admin,user','prefix' => 'auth'], functi
     Route::post('me', [AuthController::class,'me']);
 });
 
-Route::group(['middleware' => 'auth.role:user,admin','prefix' => 'news'], function ($router) {
+Route::group(['middleware' => 'auth.role:admin,user','prefix' => 'news'], function ($router) {
     Route::post('/create', [NewsController::class,'create']);
     Route::get('/getAllNews', [NewsController::class,'showAll']);
+    Route::get('/delete/{id}', [NewsController::class,'delete']);
+    Route::get('/show/{id}', [NewsController::class,'showById']);
+    Route::post('/update/{id}',[NewsController::class,'update']);
 });
-
-
-
-
