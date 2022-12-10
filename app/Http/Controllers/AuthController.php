@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class AuthController extends Controller
-{
+class AuthController extends Controller{
      /**
      * Create a new AuthController instance.
      *
@@ -52,11 +51,8 @@ class AuthController extends Controller
         }
     }
 
-    /**
-     * Get a JWT via given credentials.
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
+
+    
     public function login()
     {
         $credentials = request(['email', 'password']);
